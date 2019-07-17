@@ -1,10 +1,10 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"/>
     <title>Вход</title>
   </head>
-  <body bgcolor="#edeef0">
+  <body>
 
     <header class="header">
     <h1><font face="arial">BUGTRACKING</font></h1>

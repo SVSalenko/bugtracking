@@ -1,10 +1,43 @@
 body {
-display: grid;
+  display: grid;
   margin: 0;
+  background-color: #edeef0;
 }
 
 h1 {
 margin: auto;
+}
+
+h2 {
+  margin: auto;
+  margin-top: 42px;
+}
+
+.qwe {
+  margin-left: 872px;
+}
+
+table {
+
+  margin: auto;
+  width: 99%;
+
+}
+
+.line {
+  text-decoration: none;
+  color: #000;
+
+}
+
+table, td, tr {
+border-radius: 10px;
+    background: #5a8bc3;
+  text-decoration: none;
+  text-align: center;
+  border-collapse: collapse;
+  border: 1px solid #edeef0;
+
 }
 
 .header{
@@ -13,7 +46,7 @@ margin: auto;
   padding: 0 15px;
   height: 42px;
   color: white;
-  background: #4a76a8;
+    background: #4a76a8;
 }
 
 .center {
@@ -57,5 +90,31 @@ margin: auto;
   color: #1a73e8;
   font-family: 'Google Sans',arial,sans-serif;
   letter-spacing: .25px;
+  text-decoration: none;
+}
+
+.cnopka {
+  border: 0px;
+  margin: 10px;
+  background: #5fb052;
+  color: #fff;
+  border-radius: 6px;
+  line-height: 20px;
+  width: 270px;
+  padding: 6px 12px 6px;
+  font-size: 22px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  text-decoration: none;
+  text-align: center;
+}
+.cnopkamini{
+  background: #5fb052;
+  border: 0px;
+  color: #fff;
+  border-radius: 3px;
+  line-height: 20px;
+  padding: 1px 12px 1px;
+  cursor: pointer;
   text-decoration: none;
 }
