@@ -19,11 +19,12 @@ if($st->fetchObject()) {
   die();
 }
 
+$pass=password_hash($_POST['pass'], PASSWORD_BCRYPT);
 $st = $dbh->prepare("INSERT INTO users(name,surname,email,password) VALUES (:name, :surname, :email, :password);");
 $st->bindParam(':name', $_POST['name']);
 $st->bindParam(':surname', $_POST['surname']);
 $st->bindParam(':email', $_POST['email']);
-$st->bindParam(':password', $_POST['pass']);
+$st->bindParam(':password', $pass);
 $res = $st->execute();
 
 

@@ -14,7 +14,9 @@ h2 {
 }
 
 .qwe {
-  margin-left: 872px;
+  position: relative;
+  left: 1210px;
+  bottom: 29px;
 }
 
 table {
