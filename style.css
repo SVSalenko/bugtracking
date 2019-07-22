@@ -13,10 +13,9 @@ h2 {
   margin-top: 42px;
 }
 
-.qwe {
-  position: relative;
-  left: 1210px;
-  bottom: 29px;
+.viyti {
+float: right;
+padding: 8px 0;
 }
 
 table {
@@ -45,7 +44,7 @@ border-radius: 10px;
 .header{
   position: fixed;
   width: 100%;
-  padding: 0 15px;
+  /*padding: 0 15px;*/
   height: 42px;
   color: white;
     background: #4a76a8;

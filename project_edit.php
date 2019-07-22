@@ -1,22 +1,11 @@
 <?php
-session_start();
-if (!isset($_SESSION['user'])) {
-  header('Location: /index.php');
-}
+include 'head.php';
 ?>
-<!DOCTYPE html>
-<html lang="ru" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css"/>
     <title>Project</title>
   </head>
   <body>
 
-    <header class="header">
-    <h1><font face="arial">BUGTRACKING <?= $_SESSION['user']->name ?></h1>
-      <a href = "viyti.php"><img src="viyti.png" width="25" height="25" class="qwe"></a></font>
-    </header>
+    <?php include 'header.php'; ?>
 
     <h2>Project</h2>
 

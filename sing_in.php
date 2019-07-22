@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -7,7 +8,7 @@
   <body>
 
     <header class="header">
-    <h1><font face="arial">BUGTRACKING</font></h1>
+      <h1><font face="arial">BUGTRACKING</font></h1>
     </header>
 
     <div class="page_block">
@@ -17,6 +18,7 @@
       <p> <input name="password" type="password" class="big_text" value="" placeholder="Пароль" required="true"></p>
       <p> <input name="submit" type="submit" class="ttt" value="Войти"></p>
       </form>
+      <p><a class="IMH1vc" href="index.php">Регистрация</a></p>
     </div>
   </body>
 </html>

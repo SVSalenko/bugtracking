@@ -8,7 +8,7 @@
   <body>
 
     <header class="header">
-    <h1><font face="arial">BUGTRACKING</font></h1>
+      <h1><font face="arial">BUGTRACKING</font></h1>
     </header>
 
       <div class="page_block">
@@ -18,9 +18,10 @@
             <p>  <input name="surname" type="text" class="big_text"  value="" placeholder="Фамилия" required="true" />  </p>
             <p>  <input name="email" type="email" class="big_text"  value="" placeholder="Емейл" required="true" />  </p>
             <p>  <input name="pass" type="password" class="big_text"  value="" placeholder="Пароль" required="true" />  </p>
+            <p>  <input name="pass2" type="password" class="big_text"  value="" placeholder="Повторите пароль" required="true" />  </p>
             <p>  <input name="register" type="submit" class="ttt" value="Зарегистрироваться"/>  </p>
           </form>
-            <p><a class="IMH1vc" href="sing_in.php">Войти</a></P>
+            <p><a class="IMH1vc" href="sing_in.php">Войти</a></p>
       </div>
 
   </body>

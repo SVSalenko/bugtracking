@@ -1,22 +1,11 @@
 <?php
-session_start();
-if (!isset($_SESSION['user'])) {
-  header('Location: /index.php');
-}
+include 'head.php';
 ?>
-<!DOCTYPE html>
-<html lang="ru" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css"/>
     <title>Project</title>
   </head>
   <body>
 
-    <header class="header">
-    <h1><font face="arial">BUGTRACKING <?= $_SESSION['user']->name ?></h1>
-      <a href = "viyti.php"><img src="viyti.png" width="25" height="25" class="qwe"></a></font>
-    </header>
+    <?php include 'header.php'; ?>
 
     <h2>Project</h2>
 
@@ -24,12 +13,35 @@ if (!isset($_SESSION['user'])) {
     $id=$_GET['id'];
     $st = $dbh->prepare("SELECT * FROM projects WHERE id=$id;");
     $st->execute();
-    while($row = $st->fetchObject()){
-      echo '<p>id: ' .$row->id. '</p>';
-      echo '<p>name: ' .$row->name. '</p>';
-      echo '<p>creater: ' .$row->creater. '</p>';
-      echo '<p>tickets:</p>';
-    }
-?>
+    while($row = $st->fetchObject()):?>
+      <p>id: <?= $row->id ?> </p>
+      <p>name: <?= $row->name ?> </p>
+      <p>creater: <?= $row->creater ?> </p>
+      <p>tickets:</p>
+<?php endwhile ?>
+<table>
+<?php $dbh = new PDO('mysql:host=localhost;dbname=bugtracking','root','QWdf0610');
+$st = $dbh->prepare("SELECT * FROM tickets WHERE id_project=$id;");
+$st->execute();?>
+  <tr>
+  <td>id</td>
+  <td>name</td>
+  <td>type</td>
+  <td>status</td>
+  <td>assigned</td>
+  <td>file</td>
+  </tr>
+<?php while($row = $st->fetchObject()):?>
+  <tr>
+  <td><?= $row->id?></td>
+  <td><?= $row->name?></td>
+  <td><?= $row->type?></td>
+  <td><?= $row->status?></td>
+  <td><?= $row->assigned?></td>
+  <td><?= $row->file?></td>
+  </tr>
+<?php endwhile ?>
+  </table>
+  <a href="new_ticket.php?id=<?=$_GET['id'];?>" class="cnopka">NEW TICKET</a>
   </body>
 </html>

@@ -9,6 +9,12 @@ if(empty($_POST['name']) || empty($_POST['surname']) || empty($_POST['email']) |
     die();
 }
 
+if ($_POST['pass'] != $_POST['pass2']) {
+    echo "Пароли не совпадают!";
+    die();
+}
+
+
 $dbh = new PDO('mysql:host=localhost;dbname=bugtracking','root','QWdf0610');
 $st = $dbh->prepare("SELECT * FROM users WHERE email = :email;");
 $st->bindParam(':email', $_POST['email']);
