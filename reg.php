@@ -41,7 +41,7 @@ if($res){
     $st->execute();
     $user = $st->fetchObject();
     $_SESSION['user'] = $user;
-    header('Location: /projects.php');
+    header('Location: projects.php');
 }
 else {
     echo "Не удалось добавить информацию";

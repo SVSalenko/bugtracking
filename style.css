@@ -13,6 +13,9 @@ h2 {
   margin-top: 42px;
 }
 
+h3 {
+  margin: 4px;
+}
 .viyti {
 float: right;
 padding: 8px 0;
@@ -21,6 +24,7 @@ padding: 8px 0;
 table {
 
   margin: auto;
+  max-width: 99%;
   width: 99%;
 
 }
@@ -56,7 +60,7 @@ border-radius: 10px;
 }
 
 .page_block {
-  width: 22%;
+  width: 280px;
   padding: 25px;
   background: #fff;
   border-radius: 8px;
@@ -70,7 +74,7 @@ border-radius: 10px;
   color: #fff;
   border-radius: 3px;
   line-height: 20px;
-  width: 270px;
+  width: 100%;
   padding: 6px 12px 8px;
   font-size: 14px;
   cursor: pointer;
@@ -79,7 +83,7 @@ border-radius: 10px;
 
 .big_text {
   margin-bottom: 15px;
-  width: 270px;
+  width: 100%;
   border-radius: 3px;
   border: 1px solid #d3d9de;
   font-size: 14px;
@@ -118,4 +122,9 @@ border-radius: 10px;
   padding: 1px 12px 1px;
   cursor: pointer;
   text-decoration: none;
+}
+
+.imgmini {
+  padding: 4px 0 0;
+  height: 27px;
 }

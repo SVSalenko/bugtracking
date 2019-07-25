@@ -20,7 +20,7 @@ $st->bindParam(':email', $_POST['email']);
 $st->execute();
 $user = $st->fetchObject();
 $_SESSION['user'] = $user;
-header('Location: /projects.php');
+header('Location: projects.php');
 } else {
-header('Location: /sing_in.php');
+header('Location: sing_in.php');
 }

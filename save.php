@@ -5,4 +5,4 @@ $st = $dbh->prepare("INSERT INTO projects(name,creater) VALUES (:name, :creater)
 $st->bindParam(':name', $_POST['name']);
 $st->bindParam(':creater', $_SESSION['user']->name);
 $res = $st->execute();
-header('Location: /projects.php');
+header('Location: projects.php');
