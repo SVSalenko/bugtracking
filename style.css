@@ -1,11 +1,12 @@
 body {
+  font-family: arial;
   display: grid;
   margin: 0;
   background-color: #edeef0;
 }
 
 h1 {
-margin: auto;
+  margin: auto;
 }
 
 h2 {
@@ -17,8 +18,10 @@ h3 {
   margin: 4px;
 }
 .viyti {
-float: right;
-padding: 8px 0;
+  width: 25px;
+  height: 25px;
+  float: right;
+  padding: 8px 0;
 }
 
 table {
@@ -27,6 +30,11 @@ table {
   max-width: 99%;
   width: 99%;
 
+}
+
+.bgtr {
+  text-decoration: none;
+  color: #fff; 
 }
 
 .line {
@@ -48,7 +56,6 @@ border-radius: 10px;
 .header{
   position: fixed;
   width: 100%;
-  /*padding: 0 15px;*/
   height: 42px;
   color: white;
     background: #4a76a8;

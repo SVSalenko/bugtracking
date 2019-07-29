@@ -1,12 +1,8 @@
-<?php include 'head.php'; ?>
-
-    <title>Ticket</title>
-  </head>
-  <body>
-
-<?php include 'header.php'; ?>
-<?php $dbh = new PDO('mysql:host=localhost;dbname=bugtracking','root','QWdf0610');
-    $id=$_GET['id'];
+<?php $title = 'Ticket';?>
+<?php include 'head.php';?>
+<?php include 'header.php';?>
+<?php include 'connect.php';?>
+<?php $id=$_GET['id'];
     $st = $dbh->prepare("SELECT * FROM tickets WHERE assigned=$id");
     $st->execute();?>
 <h2>Tickets <?php
@@ -17,19 +13,17 @@ echo $name->name;?> </h2>
     <table>
       <tr>
       <td>id</td>
-      <td>id_project</td>
       <td>name</td>
-      <td>Creator</td>
+      <td>creator</td>
       <td>type</td>
       <td>status</td>
-      <td>Description</td>
+      <td>description</td>
       <td>file</td>
       <td>action</td>
       </tr>
     <?php while($row = $st->fetchObject()):?>
       <tr>
       <td><?= $row->id?></td>
-      <td><?= $row->id_project?></td>
       <td><?= $row->name?></td>
       <td><?= $row->creator?></td>
       <td><?= $row->type?></td>

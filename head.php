@@ -9,3 +9,6 @@ if (!isset($_SESSION['user'])) {
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css"/>
+    <title><?=$title?></title>
+  </head>
+  <body>

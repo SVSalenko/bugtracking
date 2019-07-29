@@ -1,4 +1,5 @@
 <?php
+include 'connect.php';
 
 if (!isset($_POST["register"])) {
   die();
@@ -15,7 +16,6 @@ if ($_POST['pass'] != $_POST['pass2']) {
 }
 
 
-$dbh = new PDO('mysql:host=localhost;dbname=bugtracking','root','QWdf0610');
 $st = $dbh->prepare("SELECT * FROM users WHERE email = :email;");
 $st->bindParam(':email', $_POST['email']);
 $st->execute();

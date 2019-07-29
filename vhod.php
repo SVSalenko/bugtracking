@@ -7,7 +7,8 @@ $email = $_POST["email"];
 $password = $_POST["password"];
 
 
-$dbh = new PDO('mysql:host=localhost;dbname=bugtracking','root','QWdf0610');
+
+include 'connect.php';
 $st = $dbh->prepare("SELECT password FROM users where email='$email'");
 $st->execute();
 $row = $st->fetchObject();

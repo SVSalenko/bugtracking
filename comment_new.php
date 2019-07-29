@@ -1,11 +1,6 @@
-<?php
-include 'head.php';
-?>
-    <title>Creating</title>
-  </head>
-  <body>
-
-    <?php include 'header.php'; ?>
+<?php $title = 'Creating';?>
+<?php include 'head.php';?>
+<?php include 'header.php';?>
 
       <div class="page_block">
           <h2 class="center">New comment</h2>

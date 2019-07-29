@@ -8,7 +8,7 @@
   <body>
 
     <header class="header">
-      <h1><font face="arial">BUGTRACKING</font></h1>
+      <h1><a class="bgtr" href="projects.php">BUGTRACKING</a></h1>
     </header>
 
       <div class="page_block">
