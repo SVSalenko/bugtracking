@@ -22,7 +22,11 @@
         <td><?=$row->id?></td>
         <?php $id=$row->id; ?>
         <td><a class="line" href="project.php?id=<?=$id?>"><?=$row->name?></a></td>
-        <td><?=$row->creater?></td>
+        <td><?php $z=$row->creator_id;
+        $st2 = $dbh->prepare("SELECT name FROM users WHERE id =$z;");
+        $st2->execute();
+        $name = $st2->fetchObject();
+        echo $name->name;?></td>
         <td><?php $st2 = $dbh->prepare("SELECT COUNT(type) as count FROM tickets WHERE id_project = $row->id;");
         $st2->execute();
         $tickets= $st2->fetchObject();
@@ -36,9 +40,11 @@
         $bug= $st4->fetchObject();
         echo $bug->count;?></td>
         <td>
-          <a class="cnopkamini" href="project.php?id=<?=$id?>">Show</a>
-          <a class="cnopkamini" href="project_edit.php?id=<?=$id?>">Edit</a>
-          <a class="cnopkamini" href="project_del.php?id=<?=$id?>">Delete</a>
+            <a class="cnopkamini" href="project.php?id=<?=$id?>">Show</a>
+          <?php if($row->creator_id == $_SESSION['user']->id || $_SESSION['user']->role == 'admin'):?>
+            <a class="cnopkamini" href="project_edit.php?id=<?=$id?>">Edit</a>
+            <a class="cnopkamini" href="project_del.php?id=<?=$id?>">Delete</a>
+          <?php endif ?>
         </td>
         </tr>
       <?php endwhile ?>

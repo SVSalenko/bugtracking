@@ -25,15 +25,17 @@ echo $name->name;?> </h2>
       <tr>
       <td><?= $row->id?></td>
       <td><?= $row->name?></td>
-      <td><?= $row->creator?></td>
+      <td><?= $row->creator_id?></td>
       <td><?= $row->type?></td>
       <td><?= $row->status?></td>
       <td><?= $row->description?></td>
        <td><a href="<?= $row->file?>"><img class="imgmini" src="<?= $row->file?>"/></a></td>
       <td><?php $id=$row->id?>
         <a class="cnopkamini" href="ticket_show.php?id=<?=$id?>">Show</a>
+        <?php if($row->creator_id == $_SESSION['user']->id || $_SESSION['user']->role == 'admin'):?>
         <a class="cnopkamini" href="ticket_edit.php?id=<?=$id?>">Edit</a>
         <a class="cnopkamini" href="ticket_del.php?id=<?=$id?>">Delete</a>
+        <?php endif ?>
       </td>
       </tr>
     <?php endwhile ?>

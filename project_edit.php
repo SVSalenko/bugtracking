@@ -1,5 +1,5 @@
-<?php $title = 'Project';?>
-<?php include 'head.php';?>
+<?php $title = 'Project'; ?>
+<?php include 'head.php'; ?>
 <?php include 'header.php'; ?>
 <?php include 'connect.php'; ?>
     <h2>Project</h2>
@@ -11,7 +11,7 @@
       <h3>Id: <?=$row->id?> </h3>
       <form action = "project_edit_save.php?id=<?=$id?>" method = "post" name = "registerform">
       <h3>Name: <input name = "name" type = "text" class = "big_text"  value = "" placeholder = "<?=$row->name?>" required = "true" />
-      <h3>Creater: <?=$row->creater?></h3>
+      <h3>Creator: <?=$row->creator_id?></h3>
       <input name = "register" type = "submit" class = "cnopka" value = "Create">  </h3>
       </form>
 <?php endwhile?>

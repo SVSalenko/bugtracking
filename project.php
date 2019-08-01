@@ -10,7 +10,11 @@
     while($row = $st->fetchObject()):?>
       <h3>Id: <?= $row->id ?> </h3>
       <h3>Name: <?= $row->name ?> </h3>
-      <h3>Creator: <?= $row->creater ?> </h3>
+      <h3>Creator: <?php $z=$row->creator_id;
+      $st2 = $dbh->prepare("SELECT name FROM users WHERE id =$z;");
+      $st2->execute();
+      $name = $st2->fetchObject();
+      echo $name->name;?></h3>
       <h3>Tickets: <?php $st2 = $dbh->prepare("SELECT COUNT(type) as count FROM tickets WHERE id_project = $row->id;");
       $st2->execute();
       $tickets= $st2->fetchObject();
@@ -46,7 +50,11 @@ $st->execute();
   <tr>
   <td><?= $row->id?></td>
   <td><?= $row->name?></td>
-  <td><?= $row->creator?></td>
+  <td><?php $z=$row->creator_id;
+  $st2 = $dbh->prepare("SELECT name FROM users WHERE id =$z;");
+  $st2->execute();
+  $name = $st2->fetchObject();
+  echo $name->name;?></td>
   <td><?= $row->type?></td>
   <td><?= $row->status?></td>
   <td><a href="tickets_all.php?id=<?= $row->assigned?>"/>
@@ -60,12 +68,21 @@ $st->execute();
    <td><a href="<?= $row->file?>"><img class="imgmini" src="<?= $row->file?>"/></a></td>
   <td><?php $id=$row->id?>
     <a class="cnopkamini" href="ticket_show.php?id=<?=$id?>">Show</a>
+    <?php if($row->creator_id == $_SESSION['user']->id || $_SESSION['user']->role == 'admin'):?>
     <a class="cnopkamini" href="ticket_edit.php?id=<?=$id?>">Edit</a>
     <a class="cnopkamini" href="ticket_del.php?id=<?=$id?>">Delete</a>
+  <?php endif ?>
+
   </td>
   </tr>
 <?php endwhile ?>
   </table>
+  <?php $st = $dbh->prepare("SELECT * FROM projects WHERE id=:id;");
+  $st->bindParam(':id', $_GET['id']);
+  $st->execute();
+  $creator = $st->fetchObject();
+  if($creator->creator_id == $_SESSION['user']->id || $_SESSION['user']->role == 'admin'):?>
   <a href="ticket_new.php?id=<?=$_GET['id'];?>" class="cnopka">NEW TICKET</a>
+  <?php endif ?>
   </body>
 </html>

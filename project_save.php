@@ -1,8 +1,8 @@
 <?php
 session_start();
-$dbh = new PDO('mysql:host=localhost;dbname=bugtracking','root','QWdf0610');
-$st = $dbh->prepare("INSERT INTO projects(name,creater) VALUES (:name, :creater);");
+include 'connect.php';
+$st = $dbh->prepare("INSERT INTO projects(name, creator_id) VALUES (:name, :creator_id);");
 $st->bindParam(':name', $_POST['name']);
-$st->bindParam(':creater', $_SESSION['user']->name);
+$st->bindParam(':creator_id', $_SESSION['user']->id);
 $res = $st->execute();
 header('Location: projects.php');

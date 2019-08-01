@@ -10,10 +10,18 @@
     while($row = $st->fetchObject()):?>
       <h3>Id: <?= $row->id?></h3>
       <h3>Name: <?= $row->name?></h3>
-      <h3>Creator: <?= $row->creator?></h3>
+      <h3>Creator: <?php $z=$row->creator_id;
+      $st2 = $dbh->prepare("SELECT name FROM users WHERE id =$z;");
+      $st2->execute();
+      $name = $st2->fetchObject();
+      echo $name->name;?></h3>
       <h3>Type: <?= $row->type?></h3>
       <h3>Status: <?= $row->status?></h3>
-      <h3>Assigned: <?= $row->assigned?></h3>
+      <h3>Assigned: <?php $z=$row->assigned;
+      $st2 = $dbh->prepare("SELECT name FROM users WHERE id =$z;");
+      $st2->execute();
+      $name = $st2->fetchObject();
+      echo $name->name;?></h3>
       <h3>Description: <?= $row->description?></h3>
       <h3>File: <a href="<?= $row->file ?>"><?= $row->orig_file_name ?></a></h3>
       <h3>Comments:</h3>
@@ -23,6 +31,7 @@
     <tr>
       <td>Comment</td>
       <td>Creator</td>
+      <td>Action</td>
     </tr>
   <?php $st2 = $dbh->prepare("SELECT * FROM comments WHERE id_ticket=$id;");
   $st2->execute();
@@ -30,6 +39,7 @@
     <tr>
       <td><?= $comment->comment?></td>
       <td><?= $comment->creator?></td>
+      <td> <a href="comment_edit.php?id=<?=$_GET['id'];?>" class="cnopkamini">Edit</a> </td>
     </tr>
   <?php endwhile ?>
 </table>
@@ -48,9 +58,14 @@ while($tags = $st3->fetchObject()):?>
 <?php endwhile ?>
 </h3>
   <p>
+    <?php $st = $dbh->prepare("SELECT * FROM tickets WHERE id=:id;");
+    $st->bindParam(':id', $_GET['id']);
+    $st->execute();
+    $creator = $st->fetchObject();
+    if($creator->creator_id == $_SESSION['user']->id || $_SESSION['user']->role == 'admin'):?>
     <a href="comment_new.php?id=<?=$_GET['id'];?>" class="cnopka">NEW COMMIT</a>
     <a class="cnopka" href="ticket_edit.php?id=<?=$id?>">EDIT TICKET</a>
-    <a class="cnopka" href="ticket_del.php?id=<?=$id?>">DELETE TICKET</a>
+  <?php endif ?>
   </p>
   </body>
 </html>
